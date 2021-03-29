@@ -9,6 +9,7 @@ RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive \
   apt-get install -y --no-install-recommends \
     iperf3 \
+    locales \
     gcc \
     git \
     pulseaudio-utils \
@@ -18,6 +19,7 @@ RUN apt-get update && \
     python3-setuptools \
     python3-wxgtk4.0 \
     wireless-tools \
+  && locale-gen en_US.UTF-8
   && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install iperf3 matplotlib scipy wheel
